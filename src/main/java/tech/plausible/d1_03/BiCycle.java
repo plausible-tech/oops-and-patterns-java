@@ -8,6 +8,8 @@ class BiCycle {
 
     private String brand;
     private String color;
+
+    // State
     private boolean running;
     private int speed;
     private int acceleration;
