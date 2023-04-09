@@ -1,5 +1,7 @@
 package tech.plausible.dp;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -32,9 +34,12 @@ public class PizzaOrder {
             description.append("\n");
             totalPrice += pizza.getPrice();
         }
+        BigDecimal formattedValue = BigDecimal.valueOf(totalPrice);
+        formattedValue = formattedValue.setScale(2, RoundingMode.HALF_UP);
+
         description.append("\n");
         description.append("Total: ");
-        description.append(totalPrice);
+        description.append(formattedValue);
         return description.toString();
     }
 

@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class PizzaRequest {
     private PizzaType pizzaType;
-    private Map<Topping, Integer> toppingCountInfo;
+    private Map<ToppingType, Integer> toppingCountInfo;
 
-    public PizzaRequest(PizzaType pizzaType, Map<Topping, Integer> toppingCountInfo) {
+    public PizzaRequest(PizzaType pizzaType, Map<ToppingType, Integer> toppingCountInfo) {
         this.pizzaType = pizzaType;
         this.toppingCountInfo = toppingCountInfo;
     }
@@ -16,7 +16,7 @@ public class PizzaRequest {
         return pizzaType;
     }
 
-    public Map<Topping, Integer> getToppingCountInfo() {
+    public Map<ToppingType, Integer> getToppingCountInfo() {
         return toppingCountInfo;
     }
 
@@ -26,7 +26,7 @@ public class PizzaRequest {
 
     public static class PizzaRequestBuilder {
         private PizzaType pizzaType;
-        private Map<Topping, Integer> toppingCountInfo;
+        private Map<ToppingType, Integer> toppingCountInfo;
 
 
         public PizzaRequestBuilder withPizzaType(PizzaType pizzaType) {
@@ -35,7 +35,7 @@ public class PizzaRequest {
         }
 
 
-        public PizzaRequestBuilder withToppingCountInfo(Map<Topping, Integer> toppingCountInfo) {
+        public PizzaRequestBuilder withToppingCountInfo(Map<ToppingType, Integer> toppingCountInfo) {
             this.toppingCountInfo = toppingCountInfo;
             return this;
         }

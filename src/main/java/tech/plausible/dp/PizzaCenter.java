@@ -9,17 +9,17 @@ public class PizzaCenter {
     public static void main(String[] args) {
         final PriceProvider priceProvider = new PriceProvider();
 
-        final Map<Topping, Integer> cheeseTopping = new HashMap<>();
-        cheeseTopping.put(Topping.CHEESE, 2);
+        final Map<ToppingType, Integer> cheeseTopping = new HashMap<>();
+        cheeseTopping.put(ToppingType.CHEESE, 2);
 
         PizzaRequest smallCheeseOnlyPizza = PizzaRequest.builder()
                 .withPizzaType(PizzaType.SMALL)
                 .withToppingCountInfo(cheeseTopping)
                 .build();
 
-        final Map<Topping, Integer> cheeseAndHamTopping = new HashMap<>();
-        cheeseAndHamTopping.put(Topping.CHEESE, 2);
-        cheeseAndHamTopping.put(Topping.HAM, 2);
+        final Map<ToppingType, Integer> cheeseAndHamTopping = new HashMap<>();
+        cheeseAndHamTopping.put(ToppingType.CHEESE, 2);
+        cheeseAndHamTopping.put(ToppingType.HAM, 2);
 
         PizzaRequest largeCheeseOnlyPizza = PizzaRequest.builder()
                 .withPizzaType(PizzaType.LARGE)
@@ -32,6 +32,7 @@ public class PizzaCenter {
 
         PizzaOrder pizzaOrder = new PizzaOrder(pizzaRequests, priceProvider);
 
+        System.out.println();
         System.out.println(pizzaOrder.getDescription());
 
     }

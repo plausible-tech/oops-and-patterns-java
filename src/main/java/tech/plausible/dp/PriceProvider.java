@@ -6,21 +6,21 @@ import java.util.Objects;
 
 public class PriceProvider {
     private final Map<PizzaType, Double> pizzaPriceStore = new HashMap<>();
-    private final Map<Topping, Double> toppingPriceStore = new HashMap<>();
+    private final Map<ToppingType, Double> toppingPriceStore = new HashMap<>();
 
     public PriceProvider() {
         pizzaPriceStore.put(PizzaType.SMALL, 10.0);
         pizzaPriceStore.put(PizzaType.MEDIUM, 12.0);
         pizzaPriceStore.put(PizzaType.LARGE, 14.0);
-        toppingPriceStore.put(Topping.CHEESE, 1.0);
-        toppingPriceStore.put(Topping.PEPPERONI, 2.0);
-        toppingPriceStore.put(Topping.HAM, 3.0);
+        toppingPriceStore.put(ToppingType.CHEESE, 1.0);
+        toppingPriceStore.put(ToppingType.PEPPERONI, 2.0);
+        toppingPriceStore.put(ToppingType.HAM, 3.0);
     }
 
-    public Double getPrice(Topping topping) {
-        final Double price = this.toppingPriceStore.get(topping);
+    public Double getPrice(ToppingType toppingType) {
+        final Double price = this.toppingPriceStore.get(toppingType);
         if (Objects.isNull(price)) {
-            throw new IllegalStateException("Topping not available");
+            throw new IllegalStateException("ToppingType not available");
         }
         return price;
     }

@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class Pizza implements OrderDescriptor {
     private final PizzaType pizzaType;
-    private final Map<Topping, Integer> toppingCountInfo;
+    private final Map<ToppingType, Integer> toppingCountInfo;
     private final PriceProvider priceProvider;
 
-    private final Map<Topping, Double> toppingCostInfo = new HashMap<>();
+    private final Map<ToppingType, Double> toppingCostInfo = new HashMap<>();
 
 
     public Pizza(PizzaRequest pizzaRequest, PriceProvider priceProvider) {
@@ -17,9 +17,9 @@ public class Pizza implements OrderDescriptor {
         this.toppingCountInfo = pizzaRequest.getToppingCountInfo();
         this.priceProvider = priceProvider;
 
-        this.toppingCountInfo.forEach((topping, count) -> {
-            final Double cost = count * priceProvider.getPrice(topping);
-            toppingCostInfo.put(topping, cost);
+        this.toppingCountInfo.forEach((toppingType, count) -> {
+            final Double cost = count * priceProvider.getPrice(toppingType);
+            toppingCostInfo.put(toppingType, cost);
         });
     }
 
@@ -67,7 +67,7 @@ public class Pizza implements OrderDescriptor {
 
     private Double getToppingCost() {
         Double toppingCost = 0.0;
-        for (final Map.Entry<Topping, Double> entries: toppingCostInfo.entrySet()) {
+        for (final Map.Entry<ToppingType, Double> entries: toppingCostInfo.entrySet()) {
             toppingCost += entries.getValue();
         }
         return toppingCost;
@@ -95,8 +95,8 @@ public class Pizza implements OrderDescriptor {
         description.append(this.pizzaType.getValue());
         description.append(" pizza with - ");
 
-        this.toppingCountInfo.forEach(((topping, count) -> {
-            description.append(String.format("%d x %s ", count, topping.getValue()));
+        this.toppingCountInfo.forEach(((toppingType, count) -> {
+            description.append(String.format("%d x %s ", count, toppingType.getValue()));
         }));
 
         description.append("@ ");
