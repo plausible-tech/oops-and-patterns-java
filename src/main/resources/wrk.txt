@@ -1,0 +1,11 @@
+Simulate a Pizza Center (You can use Main method to hard code orders, User interface/Command line not required)
+
+Support 3 pizza types -> Small, medium, large
+Support 3 types of toppings -> Cheese, pepperoni, ham
+Support no topping - Plain pizza
+Support price info for individual pizza
+Support for ordering multiple pizzas
+Support price info for order
+Support discount based on pizza type (small 5, medium 10, large 15)
+Support discount based on total price (Pizza price and Topping price) - when cost goes beyond certain price then give discount
+Support discount based on pizza type and total price
